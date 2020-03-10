@@ -74,4 +74,117 @@ function asLogin() {
         //cy.get('.content').contains('Log in').click()
     })
 
+
+    /*it('Visits todoist and fails at login', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fake1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      var mensaje=cy.get('.error_msg').find('span').contains("Wrong email or password.")
+      mensaje.invoke('text').then((text)=>{
+          expect(text).equal('Wrong email or password.')
+      })
+    })
+    it('Visits todoist and register', function() {
+      cy.visit('https://todoist.com/Users/showRegister')
+      //cy.contains('Iniciar sesión').click()
+      cy.get('#sign_up_form').find('input[id="full_name"]').click().type("fakeUser5")
+      cy.get('#sign_up_form').find('input[id="email"]').click().type("fakeUser5@fake.com")
+      cy.get('#sign_up_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('input[id="accept_terms"]').check()
+      cy.get('#sign_up_form').contains('Create My Account').click()
+      cy.url().should('eq','https://todoist.com/setup')
+    })
+    it('Visits todoist and success at login', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fakeuser1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      cy.url().should('contain','https://todoist.com/app?r=')
+    })
+    it('Login at todoist and create a task', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fakeuser1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      cy.url().should('contain','https://todoist.com/app?r=')
+      //cy.contains('Add task').click()
+      cy.get('li[class="agenda_add_task"]').click()
+      //cy.wait('#agenda_view')
+      cy.get('#editor li.manager form').find('div[role="textbox"]').click().type("Tarea pruebas")
+      cy.contains('Add Task').click()
+      var tarea= cy.get('.task_item .content').find('span').contains("Tarea pruebas")
+      tarea.invoke('text').then((text)=>{
+          expect(text).equal('Tarea pruebas')
+      })
+    })*/
+    /*it('Login at todoist and delet an overdue task', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fakeuser1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      cy.url().should('contain','https://todoist.com/app?r=')
+      cy.wait(2000);
+      cy.get('ul[id="top_filters"]').find('li[data-track="navigation|today"]').click()
+      var overdue = cy.get('#agenda_view').find('div[class="section_overdue"]')
+      if(overdue.should('exist')){
+        overdue.find('.task_item').each(function(te){
+          //text.wrap()
+          te.each(function(ind){
+              console.log("Valor de los objetos",te.get(ind).innerText)
+              console.log("Valor de text",te.text())
+              var cadena=te.get(ind).innerText.split('\n')
+              console.log("Valor de cadena",cadena)
+              if(cadena[0] == "	Tarea pruebas 1"){
+                console.log("entra al if")
+                cy.get('.ist_menu').find('td[data-track="task|more_delete"]').click()
+              }
+          })
+        })
+      }*/
+
+    /*it('Login at todoist and edit a today task', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fakeuser1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      cy.url().should('contain','https://todoist.com/app?r=')
+      cy.wait(2000);
+      cy.get('ul[id="top_filters"]').find('li[data-track="navigation|today"]').click()
+      var overdue = cy.get('#agenda_view').find('div[class="section_day"]')
+      if(overdue.should('exist')){
+        overdue.find('.task_item').each(function(te){
+          te.each(function(ind){
+              var cadena=te.get(ind).innerText.split('\n')
+              if(cadena[0] == "	Tarea pruebas 3"){
+                overdue.get(te).click()
+                cy.get('div[role="textbox"]').click().clear().type("Tarea pruebas hoy modificada")
+                cy.contains('Save').click()
+              }
+          })
+        })
+        overdue = cy.get('#agenda_view').find('div[class="section_day"]')
+        overdue.find('.task_item').each(function(te){
+          te.each(function(ind){
+              var cadena=te.get(ind).innerText.split('\n')
+              console.log("cadena nueva: ",cadena)
+              expect(cadena[0]).equal("\tTarea pruebas hoy modificada")
+          })
+        })
+      }
+  })*/
+    /*it('Login at todoist and create a project', function() {
+      cy.visit('https://todoist.com/Users/showLogin')
+      cy.get('#login_form').find('input[id="email"]').click().type("fakeuser1@fake.com")
+      cy.get('#login_form').find('input[id="password"]').click().type("pruebas201902")
+      cy.get('#login_form').contains('Log in').click()
+      cy.url().should('contain','https://todoist.com/app?r=')
+      cy.wait(2000);
+      cy.contains("Add Project").click()
+      var seccion = cy.get('section[class="reactist_modal_box__body form_fields"]')
+      seccion.find('input[name="name"]').click().type("Proyecto pruebas")
+      cy.get('footer[class="reactist_modal_box__actions"]').find('button[type="submit"]').click()
+      cy.url().should('contain','#project')
+    })*/
+
 }
