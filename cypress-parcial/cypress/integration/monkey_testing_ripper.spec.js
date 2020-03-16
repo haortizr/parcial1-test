@@ -7,11 +7,10 @@ describe('Todoist under monkeys', function() {
         cy.visit('https://todoist.com')   
         cy.wait(1000);   
         cy.visit('https://todoist.com/users/showlogin')
-        cy.get('.login_singup_form.content').find('input[name="email"]').click().type("eanunezt@gmail.com")
-        cy.get('.login_singup_form.content').find('input[name="password"]').click().type("temporal")
-        cy.get('.standalone_page > .standalone_page__content > .login_singup_form > #login_form > .submit_btn').click()
-        
-        cy.get('.left_menu').get('span').contains('Bandeja de entrada').click()
+        cy.get('.login_singup_form.content').find('input[name="email"]').click().type("holmangarcia@gmail.com")
+        cy.get('.login_singup_form.content').find('input[name="password"]').click().type("pruebatodoist")
+        cy.get('.login_singup_form').contains('Log in').click()
+        cy.visit('https://todoist.com/app?r=1584302204262#start')
         randomEventFunction(10);
     })
 
