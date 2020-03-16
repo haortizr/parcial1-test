@@ -1,0 +1,13 @@
+query("systemWebview css:'*' {textContent CONTAINS 'Register'}")
+query("systemWebview css:'*' {textContent CONTAINS 'book'}")
+query("systemWebview css:'*' {textContent CONTAINS 'books'}")
+query("*")
+query("systemWebview css:'*' {textContent CONTAINS 'Register'}")reinstall_apps
+reinstall_apps
+start_test_server_in_background
+query("*")
+query("systemWebview css:'*' {textContent CONTAINS 'Register'}")reinstall_apps
+query("systemWebview css:'*' {textContent CONTAINS 'books'}")reinstall_apps
+query("systemWebview css:'*' {textContent CONTAINS 'android.widget.FrameLayout'}")reinstall_apps
+exti
+exit
