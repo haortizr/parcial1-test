@@ -17,6 +17,6 @@
     "nodemon": "^1.19.3",
     "promise": "^8.0.3",
     "resemblejs": "^3.2.3",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.5"
   }
 }
